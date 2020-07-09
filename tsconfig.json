@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@handlers/*": ["src/Handlers/*"],
+      "@helpers/*": ["src/Helpers/*"],
+      "@typings/*": ["src/Types/*"]
+    },
+    "target": "ES2019",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noEmit": false,
+    "strict": true,
+    "esModuleInterop": true,
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "src"
+  ]
+}
