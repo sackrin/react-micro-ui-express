@@ -10,6 +10,7 @@ import CreateExpressStrap from '@typings/CreateExpressStrap';
 import CreateExpressBoot from '@typings/CreateExpressBoot';
 import doBootstrapHandler from '@handlers/doBootstrapHandler';
 import doNotFoundHandler from '@handlers/doNotFoundHandler';
+import doStrapHandler from '@handlers/doStrapHandler';
 
 const createLocalExpress: CreateLocalExpress = ({ config, profile = 'local', logger = console }) => {
   // Retrieve the environment profiles
