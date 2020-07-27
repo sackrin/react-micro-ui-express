@@ -31,7 +31,7 @@
     "webpack-manifest-plugin": "^2.2.0",
     "@loadable/component": "^5.12.0",
     "@sackrin/react-micro-ui": "0.2.6",
-    "@sackrin/react-micro-ui-express": "file:../",
+    "@sackrin/react-micro-ui-express": "^1.1.0",
     "babel-loader": "^8.1.0",
     "nps-utils": "^1.7.0",
     "react": "^16.13.1",
