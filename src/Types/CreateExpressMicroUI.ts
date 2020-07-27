@@ -3,7 +3,7 @@ import CreateExpressRoute from '@typings/CreateExpressRoute';
 import CreateExpressStrap from "@typings/CreateExpressStrap";
 import CreateExpressBoot from "@typings/CreateExpressBoot";
 
-type CreateLocalExpress = (args: {
+type CreateExpressMicroUI = (args: {
   config: MicroUiConfig;
   profile: string;
   logger: any;
@@ -17,4 +17,4 @@ type CreateLocalExpress = (args: {
   logger: any;
 } | void;
 
-export default CreateLocalExpress;
+export default CreateExpressMicroUI;

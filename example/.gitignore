@@ -2,8 +2,8 @@
 .idea
 
 # production
-.express
-.microui
+.assets
+.server
 
 # dependencies
 /node_modules

@@ -1,0 +1,43 @@
+{
+  "name": "microui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx nps"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@loadable/component": "^5.12.0",
+    "@sackrin/react-micro-ui": "0.2.6",
+    "@sackrin/react-micro-ui-express": "file:../",
+    "babel-loader": "^8.1.0",
+    "nps-utils": "^1.7.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "url-loader": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@babel/plugin-transform-spread": "^7.6.2",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.1",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "case-sensitive-paths-webpack-plugin": "^2.3.0",
+    "compression-webpack-plugin": "^4.0.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "react-dev-utils": "^10.2.1",
+    "terser-webpack-plugin": "^3.0.6",
+    "webpack": "^4.41.2",
+    "webpack-cleanup-plugin": "^0.5.1",
+    "webpack-cli": "^3.3.10",
+    "webpack-manifest-plugin": "^2.2.0"
+  }
+}

@@ -5,14 +5,14 @@ import helmet from 'helmet';
 import cors from 'cors';
 import compression from 'compression';
 import CreateExpressRoute from '@typings/CreateExpressRoute';
-import CreateLocalExpress from '@typings/CreateLocalExpress';
+import CreateExpressMicroUI from '@typings/CreateExpressMicroUI';
 import CreateExpressStrap from '@typings/CreateExpressStrap';
 import CreateExpressBoot from '@typings/CreateExpressBoot';
 import doBootstrapHandler from '@handlers/doBootstrapHandler';
 import doNotFoundHandler from '@handlers/doNotFoundHandler';
 import doStrapHandler from '@handlers/doStrapHandler';
 
-const createLocalExpress: CreateLocalExpress = ({ config, profile = 'local', logger = console }) => {
+const createExpressMicroUI: CreateExpressMicroUI = ({ config, profile = 'local', logger = console }) => {
   // Retrieve the environment profiles
   const env = config.environments.profiles[profile] || config.environments.profiles[config.environments.default];
   // Allow for env overrides
@@ -41,7 +41,7 @@ const createLocalExpress: CreateLocalExpress = ({ config, profile = 'local', log
     // Adds a route to a router of sorts
     const route: CreateExpressRoute = (path, method, handler) => {
       // Sanity check to ensure only valid methods are passed
-      if (!['get', 'get', 'all'].includes(method.toUpperCase())) {
+      if (!['get', 'post', 'all'].includes(method.toLowerCase())) {
         throw new Error('METHOD_NOT_SUPPORTED');
       }
       // Wrap the handler in
@@ -84,4 +84,4 @@ const createLocalExpress: CreateLocalExpress = ({ config, profile = 'local', log
   }
 };
 
-export default createLocalExpress;
+export default createExpressMicroUI;
