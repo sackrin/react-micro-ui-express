@@ -35,7 +35,7 @@ const createExpressMicroUI: CreateExpressMicroUI = ({ config, profile = 'local',
     api.use(cors(_cors));
     api.use(compression());
     // Serve static assets
-    api.use(express.static('./.microui'));
+    api.use(express.static('./.assets'));
     // Hydrate and output the bootstrapper script
     api.get('/bootstrap.js', doBootstrapHandler(env, config));
     // Adds a route to a router of sorts

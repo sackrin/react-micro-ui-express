@@ -18,6 +18,7 @@ const doBootstrapHandler: DoBootstrapHandler = (env, { name, assets, api, manife
   const assetUrl = env.assets?.url || apiUrl;
   const assetTarget = env.assets?.target || assets.target;
   const assetEnv = env.assets?.env || {};
+  const bootstrapHeaders = env?.bootstrap?.headers || {};
   // Replace the bootstrap JS placeholder tokens with permitted environment variables
   // This will be used by bootstrap and communicated within the window space to the built micro UI assets
   let contents = fs.readFileSync(
@@ -43,7 +44,12 @@ const doBootstrapHandler: DoBootstrapHandler = (env, { name, assets, api, manife
   res.set('Cache-Control', 'private, no-cache, no-store, must-revalidate');
   res.set('Expires', '-1');
   res.set('Pragma', 'no-cache');
-  res.sendStatus(200);
+  // Inject any additional headers
+  Object.entries(bootstrapHeaders).forEach(([key, value]) => {
+    // Set the additional header
+    res.set(key, value as string);
+  });
+  res.status(200);
   res.send(contents);
 };
 

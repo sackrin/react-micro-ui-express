@@ -16,7 +16,7 @@ module.exports = {
     build: {
       description: 'Builds Micro UI for deployment',
       default: series('npx nps clean', 'npx nps build.routes', 'npx nps build.assets'),
-      routes: `npx babel src --extensions '.ts,.tsx,.js' --config-file ./babel.server.config.json --out-dir ./.server`,
+      routes: `npx babel src --extensions '.js,.jsx' --config-file ./babel.server.config.json --out-dir ./.server`,
       assets: series(mkdirp('.assets'), `npx webpack --config ./webpack.config.js`),
     },
     clean: {

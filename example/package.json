@@ -9,16 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@loadable/component": "^5.12.0",
-    "@sackrin/react-micro-ui": "0.2.6",
-    "@sackrin/react-micro-ui-express": "file:../",
-    "babel-loader": "^8.1.0",
-    "nps-utils": "^1.7.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "url-loader": "^4.1.0"
-  },
-  "devDependencies": {
     "@babel/cli": "^7.6.2",
     "@babel/core": "^7.9.0",
     "@babel/node": "^7.6.2",
@@ -38,6 +28,15 @@
     "webpack": "^4.41.2",
     "webpack-cleanup-plugin": "^0.5.1",
     "webpack-cli": "^3.3.10",
-    "webpack-manifest-plugin": "^2.2.0"
-  }
+    "webpack-manifest-plugin": "^2.2.0",
+    "@loadable/component": "^5.12.0",
+    "@sackrin/react-micro-ui": "0.2.6",
+    "@sackrin/react-micro-ui-express": "file:../",
+    "babel-loader": "^8.1.0",
+    "nps-utils": "^1.7.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "url-loader": "^4.1.0"
+  },
+  "devDependencies": {}
 }

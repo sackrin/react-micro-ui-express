@@ -1,11 +1,14 @@
 {
-  "name": "react-micro-ui-express",
+  "name": "@sackrin/react-micro-ui-express",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "directories": {
     "example": "example"
   },
+  "files": [
+    "lib"
+  ],
   "dependencies": {
     "@sackrin/react-micro-ui": "^0.2.6",
     "compression": "^1.7.4",

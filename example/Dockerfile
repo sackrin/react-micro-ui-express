@@ -30,19 +30,19 @@ RUN mkdir /opt/app/.assets \
 # Set our working directory to the app directory
 WORKDIR /opt/app
 # Expose port 8080 which is the production port
-EXPOSE 3000
+EXPOSE 8080
 # Copy the package and package-lock files
 COPY package*.json ./
 # Install in production mode
-RUN npm ci --prod
+RUN npm i
 # Copy all non docker ignored files
 COPY . .
 ## Run the deploy build nps script
 RUN npm config set unsafe-perm true \
-  && npx nps deploy.build
+  && npx nps build
 # Remove the src and srv folders
 # These are not needed as all code has been built
-RUN rm -r src && rm -r srv
+RUN rm -r src
 # Run as non root user "node" from now on
 USER node
 # Run the built server code

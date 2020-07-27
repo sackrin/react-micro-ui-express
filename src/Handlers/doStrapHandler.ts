@@ -26,6 +26,7 @@ const doStrapHandler: DoStrapHandler = (name, component, logger, env, config, me
   const httpQuery = !req.query ? {} : req.query;
   const httpBody = !req.body ? {} : req.body;
   const props = { ...httpQuery, ...httpBody };
+  const strapHeaders = env?.strap?.headers || {};
   // Attempt to construct a static HTML representation of the component
   // Do this using provided POST and GET parameters
   try {
@@ -34,8 +35,14 @@ const doStrapHandler: DoStrapHandler = (name, component, logger, env, config, me
     const html = embedComponent(name, env, config, props, rendered);
     // Set express to return the component as the response body
     res.set('Content-Type', 'text/html');
+    // Inject any additional headers
+    Object.entries(strapHeaders).forEach(([key, value]) => {
+      // Set the additional header
+      res.set(key, value as string);
+    });
+    res.status(200);
     res.send(html);
-    res.sendStatus(200);
+    // res.sendStatus(200);
   } catch (e) {
     // Log the error which the renderer encountered
     // @TODO should the error generator be a callback that can be provided to allow better customisation?
@@ -44,8 +51,8 @@ const doStrapHandler: DoStrapHandler = (name, component, logger, env, config, me
     // @TODO should this contain more information?
     // @TODO should this be within the config?
     res.set('Content-Type', 'text/html');
+    res.status(500);
     res.send('Component Error');
-    res.sendStatus(500);
   }
 };
 

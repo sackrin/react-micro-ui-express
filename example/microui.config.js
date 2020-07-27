@@ -1,60 +1,43 @@
-const path = require("path");
+const path = require('path');
 
-const port = 8330;
+const port = 8080;
 
 module.exports = {
-  name: "exampleProfileMicroFrontend",
+  name: 'exampleProfileMicroFrontend',
   assets: {
-    target: "umd",
-    url: "http://localhost:9000",
+    target: 'umd',
+    url: `http://localhost:${port}`,
   },
   manifest: {
-    filepath: path.join(process.cwd(), ".assets", "manifest.json"),
-    entry: "main.js",
-  },
-  storybook: {
-    port: 6006,
+    filepath: path.join(process.cwd(), '.assets', 'manifest.json'),
+    entry: 'main.js',
   },
   api: {
-    url: "http://localhost:9000",
-    mode: 'rest',
+    url: `http://localhost:${port}`,
     port: port,
-    trustProxy: "trust proxy",
-    cors: { origin: "*" },
+    trustProxy: 'trust proxy',
+    cors: { origin: '*' },
     messages: {
-      START_UP: "API Layer starting",
-      STARTED_UP: "API started and listening on port",
-      CRASHED: "API crashed with message",
+      START_UP: 'API Layer starting',
+      STARTED_UP: 'API started and listening on port',
+      CRASHED: 'API crashed with message',
     },
   },
   environments: {
-    default: "local",
+    default: 'local',
     profiles: {
       local: {
         assets: {
-          url: "http://localhost:9000",
+          url: `http://localhost:${port}`,
           env: {},
         },
         api: {
-          url: "http://localhost:9000",
-          path: "/api",
-          port: 8080,
+          url: `http://localhost:${port}`,
+          path: '/api',
+          port: port,
           env: {},
         },
-      },
-      dev: {
-        assets: {
-          url: process.env.ASSET_URL || "https://d3kei5wbzchda7.cloudfront.net",
-          env: {},
-        },
-        api: {
-          url:
-            process.env.API_URL ||
-            "https://0xj59736z4.execute-api.us-east-1.amazonaws.com",
-          port: process.env.API_PORT || 9000,
-          env: {},
-        },
-      },
+      }
     },
   },
 };
