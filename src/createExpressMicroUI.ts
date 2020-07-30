@@ -75,7 +75,7 @@ const createExpressMicroUI: CreateExpressMicroUI = ({ config, profile = 'local',
       logger.info(_messages.STARTED_UP, _port);
     };
     // Returns the instance of the server, the strapper the booter, the config and the logger
-    return { api, strap, boot, route, env, config: config, logger };
+    return { api, strap, boot, route, env, config: config, logger, express };
     // If the application throws an error
     // We catch and log for debugging
   } catch (e) {

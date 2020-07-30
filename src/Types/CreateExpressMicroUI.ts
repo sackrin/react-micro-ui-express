@@ -15,6 +15,7 @@ type CreateExpressMicroUI = (args: {
   env: any;
   config: MicroUiConfig;
   logger: any;
+  express: any;
 } | void;
 
 export default CreateExpressMicroUI;
