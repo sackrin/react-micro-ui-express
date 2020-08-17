@@ -10,7 +10,7 @@
     "lib"
   ],
   "dependencies": {
-    "@sackrin/react-micro-ui": "^0.2.6",
+    "@sackrin/react-micro-ui": "^1.1.0",
     "compression": "^1.7.4",
     "core-js": "^3.6.4",
     "cors": "^2.8.5",

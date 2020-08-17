@@ -19,6 +19,7 @@ const createExpressMicroUI: CreateExpressMicroUI = ({ config, profile = 'local',
   const _cors = env.api?.cors || config.api.cors;
   const _port = env.api?.port || config.api.port;
   const _messages = env.api?.messages || config.api.messages;
+  const _prefix = env.api?.prefix || config.api?.prefix || '';
   // Attempt to start the express server
   try {
     // Retrieve any api env
@@ -37,7 +38,7 @@ const createExpressMicroUI: CreateExpressMicroUI = ({ config, profile = 'local',
     // Serve static assets
     api.use(express.static('./.assets'));
     // Hydrate and output the bootstrapper script
-    api.get('/bootstrap.js', doBootstrapHandler(env, config));
+    api.get(`${_prefix}/bootstrap.js`, doBootstrapHandler(env, config));
     // Adds a route to a router of sorts
     const route: CreateExpressRoute = (path, method, handler) => {
       // Sanity check to ensure only valid methods are passed
@@ -46,7 +47,7 @@ const createExpressMicroUI: CreateExpressMicroUI = ({ config, profile = 'local',
       }
       // Wrap the handler in
       // @ts-ignore
-      api[method.toLowerCase()](path, (req: Request, res: Response) =>
+      api[method.toLowerCase()](`${prefix}${path}`, (req: Request, res: Response) =>
         handler({
           platform: 'express',
           req,
@@ -61,9 +62,9 @@ const createExpressMicroUI: CreateExpressMicroUI = ({ config, profile = 'local',
     // Straps a component into the SSR api
     const strap: CreateExpressStrap = (name, component) => {
       // Handle a GET request to fetch a component
-      api.get(`/${name}`, doStrapHandler(name, component, logger, env, config, 'GET'));
+      api.get(`${_prefix}/${name}`, doStrapHandler(name, component, logger, env, config, 'GET'));
       // Handle a POST request to fetch a component
-      api.post(`/${name}`, doStrapHandler(name, component, logger, env, config, 'POST'));
+      api.post(`${_prefix}/${name}`, doStrapHandler(name, component, logger, env, config, 'POST'));
     };
     // Boots up the server
     const boot: CreateExpressBoot = () => {
