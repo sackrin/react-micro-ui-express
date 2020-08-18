@@ -9,7 +9,6 @@ import CreateExpressMicroUI from '@typings/CreateExpressMicroUI';
 import CreateExpressStrap from '@typings/CreateExpressStrap';
 import CreateExpressBoot from '@typings/CreateExpressBoot';
 import doBootstrapHandler from '@handlers/doBootstrapHandler';
-import doNotFoundHandler from '@handlers/doNotFoundHandler';
 import doStrapHandler from '@handlers/doStrapHandler';
 
 const createExpressMicroUI: CreateExpressMicroUI = ({ config, profile = 'local', logger = console }) => {
@@ -68,8 +67,6 @@ const createExpressMicroUI: CreateExpressMicroUI = ({ config, profile = 'local',
     };
     // Boots up the server
     const boot: CreateExpressBoot = () => {
-      // Handle any 404 errors
-      api.use(doNotFoundHandler);
       // Start the server listening on the provided port
       api.listen(_port);
       // Log that something happened
