@@ -47,7 +47,7 @@ const createExpressMicroUI: CreateExpressMicroUI = ({ config, profile = 'local',
       }
       // Wrap the handler in
       // @ts-ignore
-      api[method.toLowerCase()](`${prefix}${path}`, (req: Request, res: Response) =>
+      api[method.toLowerCase()](`${_prefix}${path}`, (req: Request, res: Response) =>
         handler({
           platform: 'express',
           req,
